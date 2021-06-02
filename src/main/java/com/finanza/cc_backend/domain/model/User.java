@@ -42,55 +42,71 @@ public class User extends AuditModel {
         return Id;
     }
 
-    public void setId(Long id) {
+    public User setId(Long id) {
         Id = id;
+        return this;
     }
 
     public String getFirst_name() {
         return first_name;
     }
 
-    public void setFirst_name(String first_name) {
+    public User setFirst_name(String first_name) {
         this.first_name = first_name;
+        return this;
     }
 
     public String getLast_name() {
         return last_name;
     }
 
-    public void setLast_name(String last_name) {
+    public User setLast_name(String last_name) {
         this.last_name = last_name;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public User setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public User setPhone(String phone) {
         this.phone = phone;
+        return this;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public User setUsername(String username) {
         this.username = username;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
+        return this;
+    }
+
+    public List<MortgageCredit> getMortgageCreditsList() {
+        return mortgageCreditsList;
+    }
+
+    public User setMortgageCreditsList(List<MortgageCredit> mortgageCreditsList) {
+        this.mortgageCreditsList = mortgageCreditsList;
+        return this;
     }
 }

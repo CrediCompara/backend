@@ -20,9 +20,6 @@ public class MortgageCredit extends AuditModel {
     private String currency;
 
     @NotNull
-    private double initial_free;
-
-    @NotNull
     private int term;
 
     @NotNull
@@ -45,55 +42,71 @@ public class MortgageCredit extends AuditModel {
         return Id;
     }
 
-    public void setId(Long id) {
+    public MortgageCredit setId(Long id) {
         Id = id;
+        return this;
     }
 
     public double getProperty_value() {
         return property_value;
     }
 
-    public void setProperty_value(double property_value) {
+    public MortgageCredit setProperty_value(double property_value) {
         this.property_value = property_value;
+        return this;
     }
 
     public String getCurrency() {
         return currency;
     }
 
-    public void setCurrency(String currency) {
+    public MortgageCredit setCurrency(String currency) {
         this.currency = currency;
-    }
-
-    public double getInitial_free() {
-        return initial_free;
-    }
-
-    public void setInitial_free(double initial_free) {
-        this.initial_free = initial_free;
+        return this;
     }
 
     public int getTerm() {
         return term;
     }
 
-    public void setTerm(int term) {
+    public MortgageCredit setTerm(int term) {
         this.term = term;
+        return this;
     }
 
     public double getIncomes() {
         return incomes;
     }
 
-    public void setIncomes(double incomes) {
+    public MortgageCredit setIncomes(double incomes) {
         this.incomes = incomes;
+        return this;
     }
 
     public double getFee_value() {
         return fee_value;
     }
 
-    public void setFee_value(double fee_value) {
+    public MortgageCredit setFee_value(double fee_value) {
         this.fee_value = fee_value;
+        return this;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public MortgageCredit setUser(User user) {
+        this.user = user;
+        return this;
+    }
+
+    public Rate getRate() {
+        return rate;
+    }
+
+    public MortgageCredit setRate(Rate rate) {
+        this.rate = rate;
+        return this;
     }
 }

@@ -26,23 +26,26 @@ public class Bank extends AuditModel {
       return Id;
    }
 
-   public void setId(Long id) {
+   public Bank setId(Long id) {
       Id = id;
+      return this;
    }
 
    public String getName() {
       return name;
    }
 
-   public void setName(String name) {
+   public Bank setName(String name) {
       this.name = name;
+      return this;
    }
 
    public List<Rate> getRates() {
       return rates;
    }
 
-   public void setRates(List<Rate> rates) {
+   public Bank setRates(List<Rate> rates) {
       this.rates = rates;
+      return this;
    }
 }

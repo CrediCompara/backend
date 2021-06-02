@@ -28,31 +28,35 @@ public class Term extends AuditModel {
         return Id;
     }
 
-    public void setId(Long id) {
+    public Term setId(Long id) {
         Id = id;
+        return this;
     }
 
     public double getMin_term() {
         return min_term;
     }
 
-    public void setMin_term(double min_term) {
+    public Term setMin_term(double min_term) {
         this.min_term = min_term;
+        return this;
     }
 
     public double getMax_term() {
         return max_term;
     }
 
-    public void setMax_term(double max_term) {
+    public Term setMax_term(double max_term) {
         this.max_term = max_term;
+        return this;
     }
 
     public List<Rate> getRateList() {
         return rateList;
     }
 
-    public void setRateList(List<Rate> rateList) {
+    public Term setRateList(List<Rate> rateList) {
         this.rateList = rateList;
+        return this;
     }
 }

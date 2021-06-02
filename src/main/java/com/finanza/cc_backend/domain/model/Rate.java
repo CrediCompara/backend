@@ -43,55 +43,62 @@ public class Rate extends AuditModel {
         return Id;
     }
 
-    public void setId(Long id) {
+    public Rate setId(Long id) {
         Id = id;
+        return this;
     }
 
     public Bank getBank() {
         return bank;
     }
 
-    public void setBank(Bank bank) {
+    public Rate setBank(Bank bank) {
         this.bank = bank;
+        return this;
     }
 
     public Term getTerm() {
         return term;
     }
 
-    public void setTerm(Term term) {
+    public Rate setTerm(Term term) {
         this.term = term;
+        return this;
     }
 
     public Value getValue() {
         return value;
     }
 
-    public void setValue(Value value) {
+    public Rate setValue(Value value) {
         this.value = value;
+        return this;
     }
 
     public MortgageCredit getMortgageCredit() {
         return mortgageCredit;
     }
 
-    public void setMortgageCredit(MortgageCredit mortgageCredit) {
+    public Rate setMortgageCredit(MortgageCredit mortgageCredit) {
         this.mortgageCredit = mortgageCredit;
+        return this;
     }
 
     public double getMin_rate() {
         return min_rate;
     }
 
-    public void setMin_rate(double min_rate) {
+    public Rate setMin_rate(double min_rate) {
         this.min_rate = min_rate;
+        return this;
     }
 
     public double getMax_rate() {
         return max_rate;
     }
 
-    public void setMax_rate(double max_rate) {
+    public Rate setMax_rate(double max_rate) {
         this.max_rate = max_rate;
+        return this;
     }
 }

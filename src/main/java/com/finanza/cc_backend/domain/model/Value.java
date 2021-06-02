@@ -20,6 +20,9 @@ public class Value extends AuditModel {
     @NotNull
     private double max_value;
 
+    @NotNull
+    private String currency;
+
     //OneToMany rates
     @OneToMany(mappedBy = "value")
     @JsonIgnore
@@ -29,31 +32,44 @@ public class Value extends AuditModel {
         return Id;
     }
 
-    public void setId(Long id) {
+    public Value setId(Long id) {
         Id = id;
+        return this;
     }
 
     public double getMin_value() {
         return min_value;
     }
 
-    public void setMin_value(double min_value) {
+    public Value setMin_value(double min_value) {
         this.min_value = min_value;
+        return this;
     }
 
     public double getMax_value() {
         return max_value;
     }
 
-    public void setMax_value(double max_value) {
+    public Value setMax_value(double max_value) {
         this.max_value = max_value;
+        return this;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public Value setCurrency(String currency) {
+        this.currency = currency;
+        return this;
     }
 
     public List<Rate> getRates() {
         return rates;
     }
 
-    public void setRates(List<Rate> rates) {
+    public Value setRates(List<Rate> rates) {
         this.rates = rates;
+        return this;
     }
 }

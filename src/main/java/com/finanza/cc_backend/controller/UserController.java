@@ -1,8 +1,10 @@
 package com.finanza.cc_backend.controller;
 
+import com.finanza.cc_backend.domain.model.MortgageCredit;
 import com.finanza.cc_backend.domain.model.User;
 import com.finanza.cc_backend.domain.service.UserService;
 import com.finanza.cc_backend.resource.MortgageCreditResource;
+import com.finanza.cc_backend.resource.SaveMortgageCreditResource;
 import com.finanza.cc_backend.resource.SaveUserResource;
 import com.finanza.cc_backend.resource.UserResource;
 import io.swagger.v3.oas.annotations.Operation;
@@ -39,9 +41,9 @@ public class UserController {
             @ApiResponse(responseCode = "200", description = "All mortgage credits of an User returned", content = @Content(mediaType = "application/json"))
     })
     @GetMapping("/user/{userId}/mortgage")
-    public Page<MortgageCreditResource> getMortgageCreditByUserId(@PathVariable Long userId){
-        //return userService.getMortgageCreditByUserId();
-        return null;
+    public MortgageCreditResource getMortgageCreditByUserId(@PathVariable Long userId){
+        return convertMortgageToResource(userService.getMortgageCredit(userId));
+
     }
 
     private User convertToEntity(SaveUserResource resource){
@@ -51,4 +53,13 @@ public class UserController {
     private UserResource convertToResource(User entity){
         return mapper.map(entity, UserResource.class);
     }
+
+    private MortgageCredit convertMortagageToEntity(SaveMortgageCreditResource resource){
+        return mapper.map(resource, MortgageCredit.class);
+    }
+
+    private MortgageCreditResource convertMortgageToResource(MortgageCredit entity){
+        return mapper.map(entity, MortgageCreditResource.class);
+    }
+
 }

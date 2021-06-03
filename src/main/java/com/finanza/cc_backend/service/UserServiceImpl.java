@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MortgageCredit getMortgageCredit(Long id) {
-         return mortagageCreditRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("User","Id",id));
+         return mortagageCreditRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Mortage","Id",id));
 
     }
 

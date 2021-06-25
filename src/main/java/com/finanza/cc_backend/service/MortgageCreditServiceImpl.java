@@ -2,28 +2,27 @@ package com.finanza.cc_backend.service;
 
 import com.finanza.cc_backend.domain.model.MortgageCredit;
 import com.finanza.cc_backend.domain.model.User;
+import com.finanza.cc_backend.domain.repository.MortgageCreditRepository;
 import com.finanza.cc_backend.domain.repository.UserRepository;
-import com.finanza.cc_backend.domain.service.UserService;
+import com.finanza.cc_backend.domain.service.MortgageCreditService;
 import com.finanza.cc_backend.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class UserServiceImpl implements UserService {
+public class MortgageCreditServiceImpl implements MortgageCreditService {
     @Autowired
-    private UserRepository userRepository;
+    MortgageCreditRepository mortgageCreditRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
-    }
-
-    @Override
-    public List<MortgageCredit> getMortgageCreditsById(Long userId) {
+    public User saveMortgageCreditByUserId(MortgageCredit mortgageCredit, Long userId) {
+        MortgageCredit mortgageCredit1 = mortgageCreditRepository.save(mortgageCredit);
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
-        return user.getMortgageCreditsList();
+        user.getMortgageCreditsList().add(mortgageCredit1);
+        return user;
     }
 }

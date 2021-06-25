@@ -4,7 +4,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public class SaveMortgageCreditResource {
-
     @NotNull
     private double property_value;
 
@@ -19,7 +18,13 @@ public class SaveMortgageCreditResource {
     private double incomes;
 
     @NotNull
-    private double fee_value;
+    private double initial_fee;
+
+    @NotNull
+    private double monthly_fee;
+
+    @NotNull
+    private double tcea;
 
     public double getProperty_value() {
         return property_value;
@@ -57,12 +62,30 @@ public class SaveMortgageCreditResource {
         return this;
     }
 
-    public double getFee_value() {
-        return fee_value;
+    public double getInitial_fee() {
+        return initial_fee;
     }
 
-    public SaveMortgageCreditResource setFee_value(double fee_value) {
-        this.fee_value = fee_value;
+    public SaveMortgageCreditResource setInitial_fee(double initial_fee) {
+        this.initial_fee = initial_fee;
+        return this;
+    }
+
+    public double getMonthly_fee() {
+        return monthly_fee;
+    }
+
+    public SaveMortgageCreditResource setMonthly_fee(double monthly_fee) {
+        this.monthly_fee = monthly_fee;
+        return this;
+    }
+
+    public double getTcea() {
+        return tcea;
+    }
+
+    public SaveMortgageCreditResource setTcea(double tcea) {
+        this.tcea = tcea;
         return this;
     }
 }

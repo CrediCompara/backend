@@ -1,5 +1,6 @@
 package com.finanza.cc_backend.controller;
 
+import com.finanza.cc_backend.domain.model.MortgageCredit;
 import com.finanza.cc_backend.domain.model.User;
 import com.finanza.cc_backend.domain.service.UserService;
 import com.finanza.cc_backend.resource.MortgageCreditResource;
@@ -15,8 +16,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class UserController {
     @Autowired
@@ -25,25 +29,29 @@ public class UserController {
     @Autowired
     private ModelMapper mapper;
 
-    @Operation(summary = "Create User", description = "Create User with all fields", tags = {"users"})
+    @Operation(summary = "Register an User", description = "Create User with all fields", tags = {"Security"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User returned", content = @Content(mediaType = "application/json"))
     })
-    @PostMapping("/user")
+    @PostMapping("/auth/sign-up")
     public UserResource createUser(@Valid @RequestBody SaveUserResource resource){
         return convertToResource(userService.createUser(convertToEntity(resource)));
     }
 
-    @Operation(summary = "Get MortgageCredits by User", description = "Get all mortgage credits saved by the user", tags = {"users"})
+    @Operation(summary = "Get MortgageCredits by User", description = "Get all mortgage credits saved by the user", tags = {"Users"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "All mortgage credits of an User returned", content = @Content(mediaType = "application/json"))
     })
-    @GetMapping("/user/{userId}/mortgage")
-    public Page<MortgageCreditResource> getMortgageCreditByUserId(@PathVariable Long userId){
-        //return userService.getMortgageCreditByUserId();
-        return null;
+    @GetMapping("/users/{userId}/mortgages")
+    public List<MortgageCreditResource> getMortgageCreditByUserId(@PathVariable Long userId){
+        return userService.getMortgageCreditsById(userId).stream()
+                .map(this::convertToResourceMortagage)
+                .collect(Collectors.toList());
     }
 
+    private MortgageCreditResource convertToResourceMortagage(MortgageCredit mortgageCredit){
+        return mapper.map(mortgageCredit, MortgageCreditResource.class);
+    }
     private User convertToEntity(SaveUserResource resource){
         return mapper.map(resource, User.class);
     }

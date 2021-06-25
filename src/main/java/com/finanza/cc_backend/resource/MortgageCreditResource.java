@@ -2,6 +2,11 @@ package com.finanza.cc_backend.resource;
 
 import com.finanza.cc_backend.domain.AuditModel;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 
 public class MortgageCreditResource extends AuditModel {
     private Long Id;
@@ -9,7 +14,9 @@ public class MortgageCreditResource extends AuditModel {
     private String currency;
     private int term;
     private double incomes;
-    private double fee_value;
+    private double initial_fee;
+    private double monthly_fee;
+    private double tcea;
 
     public Long getId() {
         return Id;
@@ -56,12 +63,30 @@ public class MortgageCreditResource extends AuditModel {
         return this;
     }
 
-    public double getFee_value() {
-        return fee_value;
+    public double getInitial_fee() {
+        return initial_fee;
     }
 
-    public MortgageCreditResource setFee_value(double fee_value) {
-        this.fee_value = fee_value;
+    public MortgageCreditResource setInitial_fee(double initial_fee) {
+        this.initial_fee = initial_fee;
+        return this;
+    }
+
+    public double getMonthly_fee() {
+        return monthly_fee;
+    }
+
+    public MortgageCreditResource setMonthly_fee(double monthly_fee) {
+        this.monthly_fee = monthly_fee;
+        return this;
+    }
+
+    public double getTcea() {
+        return tcea;
+    }
+
+    public MortgageCreditResource setTcea(double tcea) {
+        this.tcea = tcea;
         return this;
     }
 }

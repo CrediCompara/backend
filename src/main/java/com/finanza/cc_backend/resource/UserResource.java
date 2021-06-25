@@ -2,14 +2,12 @@ package com.finanza.cc_backend.resource;
 
 import com.finanza.cc_backend.domain.AuditModel;
 
-public class UserResource extends AuditModel {
+public class UserResource{
 
     private Long Id;
     private String first_name;
     private String last_name;
     private String email;
-    private String phone;
-    private String username;
     private String password;
 
     public Long getId() {
@@ -45,24 +43,6 @@ public class UserResource extends AuditModel {
 
     public UserResource setEmail(String email) {
         this.email = email;
-        return this;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public UserResource setPhone(String phone) {
-        this.phone = phone;
-        return this;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public UserResource setUsername(String username) {
-        this.username = username;
         return this;
     }
 

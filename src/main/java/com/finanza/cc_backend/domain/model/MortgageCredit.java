@@ -3,7 +3,6 @@ package com.finanza.cc_backend.domain.model;
 import com.finanza.cc_backend.domain.AuditModel;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -26,7 +25,13 @@ public class MortgageCredit extends AuditModel {
     private double incomes;
 
     @NotNull
-    private double fee_value;
+    private double initial_fee;
+
+    @NotNull
+    private double monthly_fee;
+
+    @NotNull
+    private double tcea;
 
     //ManyToOne user
     @ManyToOne
@@ -83,12 +88,30 @@ public class MortgageCredit extends AuditModel {
         return this;
     }
 
-    public double getFee_value() {
-        return fee_value;
+    public double getInitial_fee() {
+        return initial_fee;
     }
 
-    public MortgageCredit setFee_value(double fee_value) {
-        this.fee_value = fee_value;
+    public MortgageCredit setInitial_fee(double initial_fee) {
+        this.initial_fee = initial_fee;
+        return this;
+    }
+
+    public double getMonthly_fee() {
+        return monthly_fee;
+    }
+
+    public MortgageCredit setMonthly_fee(double monthly_fee) {
+        this.monthly_fee = monthly_fee;
+        return this;
+    }
+
+    public double getTcea() {
+        return tcea;
+    }
+
+    public MortgageCredit setTcea(double tcea) {
+        this.tcea = tcea;
         return this;
     }
 

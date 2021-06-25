@@ -1,7 +1,5 @@
 package com.finanza.cc_backend.resource;
 
-import com.finanza.cc_backend.domain.AuditModel;
-
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -19,16 +17,6 @@ public class SaveUserResource {
     @Column(unique = true)
     @NotBlank
     private String email;
-
-    @NotNull
-    @NotBlank
-    @Column(unique = true)
-    private String phone;
-
-    @NotNull
-    @NotBlank
-    @Column(unique = true)
-    private String username;
 
     @NotNull
     @NotBlank
@@ -58,24 +46,6 @@ public class SaveUserResource {
 
     public SaveUserResource setEmail(String email) {
         this.email = email;
-        return this;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public SaveUserResource setPhone(String phone) {
-        this.phone = phone;
-        return this;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public SaveUserResource setUsername(String username) {
-        this.username = username;
         return this;
     }
 

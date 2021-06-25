@@ -22,15 +22,6 @@ public class User extends AuditModel {
     @NotNull
     @Column(unique = true)
     private String email;
-
-    @NotNull
-    @Column(unique = true)
-    private String phone;
-
-    @NotNull
-    @Column(unique = true)
-    private String username;
-
     @NotNull
     private String password;
 
@@ -71,24 +62,6 @@ public class User extends AuditModel {
 
     public User setEmail(String email) {
         this.email = email;
-        return this;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public User setPhone(String phone) {
-        this.phone = phone;
-        return this;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public User setUsername(String username) {
-        this.username = username;
         return this;
     }
 

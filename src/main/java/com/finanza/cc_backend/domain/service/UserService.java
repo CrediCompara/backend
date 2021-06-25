@@ -8,4 +8,5 @@ import java.util.List;
 public interface UserService {
     User createUser(User user);
     List<MortgageCredit> getMortgageCreditsById(Long userId);
+    User findUserByEmail(String email);
 }

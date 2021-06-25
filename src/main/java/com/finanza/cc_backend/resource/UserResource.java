@@ -8,7 +8,6 @@ public class UserResource{
     private String first_name;
     private String last_name;
     private String email;
-    private String password;
 
     public Long getId() {
         return Id;
@@ -43,15 +42,6 @@ public class UserResource{
 
     public UserResource setEmail(String email) {
         this.email = email;
-        return this;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public UserResource setPassword(String password) {
-        this.password = password;
         return this;
     }
 }

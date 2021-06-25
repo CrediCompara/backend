@@ -19,9 +19,10 @@ public class MortgageCreditServiceImpl implements MortgageCreditService {
 
     @Override
     public User saveMortgageCreditByUserId(MortgageCredit mortgageCredit, Long userId) {
-        MortgageCredit mortgageCredit1 = mortgageCreditRepository.save(mortgageCredit);
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
+        mortgageCredit.setUser(user);
+        MortgageCredit mortgageCredit1 = mortgageCreditRepository.save(mortgageCredit);
         user.getMortgageCreditsList().add(mortgageCredit1);
         return user;
     }

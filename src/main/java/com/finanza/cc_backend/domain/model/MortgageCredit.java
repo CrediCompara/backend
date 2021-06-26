@@ -38,10 +38,10 @@ public class MortgageCredit extends AuditModel {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    //OnetoOne rates
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "rate_id", referencedColumnName = "id")
-    private Rate rate;
+    //OnetoOne banks
+    @OneToOne
+    @JoinColumn(name = "bank_id", nullable = false)
+    private Bank bank;
 
     public Long getId() {
         return Id;
@@ -124,12 +124,12 @@ public class MortgageCredit extends AuditModel {
         return this;
     }
 
-    public Rate getRate() {
-        return rate;
+    public Bank getBank() {
+        return bank;
     }
 
-    public MortgageCredit setRate(Rate rate) {
-        this.rate = rate;
+    public MortgageCredit setBank(Bank bank) {
+        this.bank = bank;
         return this;
     }
 }

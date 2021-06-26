@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -48,7 +49,6 @@ public class UserController {
                 .map(this::convertToResourceMortagage)
                 .collect(Collectors.toList());
     }
-
     private MortgageCreditResource convertToResourceMortagage(MortgageCredit mortgageCredit){
         return mapper.map(mortgageCredit, MortgageCreditResource.class);
     }

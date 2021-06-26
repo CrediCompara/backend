@@ -29,12 +29,12 @@ public class MortgageCreditController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User returned", content = @Content(mediaType = "application/json"))
     })
-    @PostMapping("/mortgages/users/{userId}")
+    @PostMapping("/mortgages/users/{userId}/banks/{bank_id}")
     public MortgageCreditResource saveMortgageByUserId(
             @Valid @RequestBody SaveMortgageCreditResource saveMortgageCreditResource,
-            @PathVariable Long userId){
+            @PathVariable Long userId, @PathVariable Long bank_id){
         MortgageCredit mg = convertToEntity(saveMortgageCreditResource);
-        return convertToResource(mortgageCreditService.saveMortgageCreditByUserId(mg, userId));
+        return convertToResource(mortgageCreditService.saveMortgageCreditByUserId(mg, userId,bank_id));
     }
 
     @Operation(summary = "Delete MortgageCredit", description = "Delete a Mortgage Credit by Id", tags = {"Mortgage Credits"})
@@ -52,6 +52,9 @@ public class MortgageCreditController {
     }
 
     private MortgageCreditResource convertToResource(MortgageCredit entity){
-        return mapper.map(entity, MortgageCreditResource.class);
+
+        MortgageCreditResource mgr=mapper.map(entity, MortgageCreditResource.class);
+        mgr.setBank_id(entity.getBank().getId());
+    return mgr;
     }
 }

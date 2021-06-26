@@ -29,7 +29,7 @@ public class Rate extends AuditModel {
     private Value value;
 
     //OneToOne
-    @OneToOne(mappedBy = "rate")
+    @OneToOne(mappedBy = "bank")
     @JsonIgnore
     private MortgageCredit mortgageCredit;
 

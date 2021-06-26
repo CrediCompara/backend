@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 
-public class MortgageCreditResource extends AuditModel {
+public class MortgageCreditResource {
     private Long Id;
     private double property_value;
     private String currency;
@@ -17,6 +17,16 @@ public class MortgageCreditResource extends AuditModel {
     private double initial_fee;
     private double monthly_fee;
     private double tcea;
+    private Long bank_id;
+
+    public Long getBank_id() {
+        return bank_id;
+    }
+
+    public MortgageCreditResource setBank_id(Long bank_id) {
+        this.bank_id = bank_id;
+        return this;
+    }
 
     public Long getId() {
         return Id;

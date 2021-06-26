@@ -50,13 +50,16 @@ public class UserController {
                 .collect(Collectors.toList());
     }
     private MortgageCreditResource convertToResourceMortagage(MortgageCredit mortgageCredit){
-        return mapper.map(mortgageCredit, MortgageCreditResource.class);
+        MortgageCreditResource mgr=mapper.map(mortgageCredit, MortgageCreditResource.class);
+        mgr.setBank_id(mortgageCredit.getBank().getId());
+        return mgr;
     }
     private User convertToEntity(SaveUserResource resource){
         return mapper.map(resource, User.class);
     }
 
     private UserResource convertToResource(User entity){
+
         return mapper.map(entity, UserResource.class);
     }
 }

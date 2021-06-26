@@ -28,11 +28,6 @@ public class Rate extends AuditModel {
     @JoinColumn(name = "value_id", nullable = false)
     private Value value;
 
-    //OneToOne
-    @OneToOne(mappedBy = "bank")
-    @JsonIgnore
-    private MortgageCredit mortgageCredit;
-
     @NotNull
     private double min_rate;
 
@@ -72,15 +67,6 @@ public class Rate extends AuditModel {
 
     public Rate setValue(Value value) {
         this.value = value;
-        return this;
-    }
-
-    public MortgageCredit getMortgageCredit() {
-        return mortgageCredit;
-    }
-
-    public Rate setMortgageCredit(MortgageCredit mortgageCredit) {
-        this.mortgageCredit = mortgageCredit;
         return this;
     }
 

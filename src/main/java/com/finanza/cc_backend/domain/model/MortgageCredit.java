@@ -40,7 +40,7 @@ public class MortgageCredit extends AuditModel {
 
     //OnetoOne banks
     @OneToOne
-    @JoinColumn(name = "bank_id", referencedColumnName = "id")
+    @JoinColumn(name = "bank_id", nullable = false)
     private Bank bank;
 
     public Long getId() {
